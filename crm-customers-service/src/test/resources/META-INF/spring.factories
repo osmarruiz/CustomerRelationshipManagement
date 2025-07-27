@@ -1,0 +1,4 @@
+org.springframework.test.context.ContextCustomizerFactory = \
+    com.fortcreektechnologies.crmcustomers.config.\
+    SqlTestContainersSpringContextCustomizerFactory,com.fortcreektechnologies.\
+    crmcustomers.config.RedisTestContainersSpringContextCustomizerFactory

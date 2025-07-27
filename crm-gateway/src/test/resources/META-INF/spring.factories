@@ -1,0 +1,3 @@
+org.springframework.test.context.ContextCustomizerFactory = \
+    com.fortcreektechnologies.crmgateway.config.\
+    SqlTestContainersSpringContextCustomizerFactory

@@ -1,0 +1,87 @@
+# ================================
+# Java & Spring Boot
+# ================================
+/target/
+/build/
+/out/
+/.gradle/
+/.mvn/
+*.class
+*.war
+*.ear
+*.jar
+
+# ================================
+# Node / Frontend (Angular o React)
+# ================================
+node_modules/
+dist/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+/.angular/cache
+/.cache/
+
+# ================================
+# JHipster specific
+# ================================
+/.idea/
+/.project
+/.classpath
+/.settings/
+/.gradle/
+/.mvn/wrapper/maven-wrapper.jar
+/.yo-rc.json
+
+# ================================
+# Logs & Temp
+# ================================
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# ================================
+# Docker & Compose
+# ================================
+/docker-compose/.env
+/docker-compose/keycloak-db-data/
+/docker-compose/postgresql-data/
+/docker-compose/volumes/
+
+# ================================
+# Database
+# ================================
+*.h2.db
+*.mv.db
+
+# ================================
+# OS Files
+# ================================
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# ================================
+# IntelliJ / Eclipse / VSCode
+# ================================
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+bin/
+
+# ================================
+# Test coverage
+# ================================
+/coverage/
+/test-results/
+
+# ================================
+# JHipster Docker & Registry
+# ================================
+/jhipster-registry/
+/registry/
