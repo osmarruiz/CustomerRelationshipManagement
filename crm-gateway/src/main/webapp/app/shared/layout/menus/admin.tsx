@@ -1,25 +1,25 @@
 import React from 'react';
 import MenuItem from 'app/shared/layout/menus/menu-item';
 
-import { Translate, translate } from 'react-jhipster';
+import { translate } from 'react-jhipster';
 import { NavDropdown } from './menu-components';
 
 const adminMenuItems = () => (
   <>
     <MenuItem icon="road" to="/admin/gateway">
-      <Translate contentKey="global.menu.admin.gateway">Gateway</Translate>
+      Gateway
     </MenuItem>
     <MenuItem icon="tachometer-alt" to="/admin/metrics">
-      <Translate contentKey="global.menu.admin.metrics">Metrics</Translate>
+      Metrics
     </MenuItem>
     <MenuItem icon="heart" to="/admin/health">
-      <Translate contentKey="global.menu.admin.health">Health</Translate>
+      Health
     </MenuItem>
     <MenuItem icon="cogs" to="/admin/configuration">
-      <Translate contentKey="global.menu.admin.configuration">Configuration</Translate>
+      Configuration
     </MenuItem>
     <MenuItem icon="tasks" to="/admin/logs">
-      <Translate contentKey="global.menu.admin.logs">Logs</Translate>
+      Logs
     </MenuItem>
     {/* jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here */}
   </>
@@ -27,7 +27,7 @@ const adminMenuItems = () => (
 
 const openAPIItem = () => (
   <MenuItem icon="book" to="/admin/docs">
-    <Translate contentKey="global.menu.admin.apidocs">API</Translate>
+    API
   </MenuItem>
 );
 

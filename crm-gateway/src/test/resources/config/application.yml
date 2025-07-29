@@ -37,8 +37,7 @@ spring:
     host: localhost
   main:
     allow-bean-definition-overriding: true
-  messages:
-    basename: i18n/messages
+  # Removed i18n configuration
   security:
     oauth2:
       client:

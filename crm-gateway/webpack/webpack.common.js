@@ -33,11 +33,7 @@ const getTsLoaderRule = () => {
 
 module.exports = async options => {
   const development = options.env === 'development';
-  const languagesHash = await hashElement(path.resolve(__dirname, '../src/main/webapp/i18n'), {
-    algo: 'md5',
-    encoding: 'hex',
-    files: { include: ['*.json'] },
-  });
+  // Removed i18n configuration
 
   return merge(
     {
@@ -94,7 +90,6 @@ module.exports = async options => {
           LOG_LEVEL: development ? 'info' : 'error',
         }),
         new webpack.DefinePlugin({
-          I18N_HASH: JSON.stringify(languagesHash.hash),
           DEVELOPMENT: JSON.stringify(development),
           VERSION: JSON.stringify(environment.VERSION),
           SERVER_API_URL: JSON.stringify(environment.SERVER_API_URL),
@@ -131,15 +126,7 @@ module.exports = async options => {
           inject: 'body',
           base: '/',
         }),
-        new MergeJsonWebpackPlugin({
-          output: {
-            groupBy: [
-              { pattern: './src/main/webapp/i18n/es/*.json', fileName: './i18n/es.json' },
-              { pattern: './src/main/webapp/i18n/en/*.json', fileName: './i18n/en.json' },
-              // jhipster-needle-i18n-language-webpack - JHipster will add/remove languages in this array
-            ],
-          },
-        }),
+        // Removed MergeJsonWebpackPlugin for i18n
       ],
     },
     // jhipster-needle-add-webpack-config - JHipster will add custom config

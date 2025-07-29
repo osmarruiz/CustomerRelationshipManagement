@@ -130,7 +130,7 @@ spring:
           max-connections: 1000
   docker:
     compose:
-      enabled: true
+      enabled: false
       lifecycle-management: start-only
       file: src/main/docker/services.yml
   profiles:
@@ -146,8 +146,7 @@ spring:
         #- tls
   jmx:
     enabled: false
-  messages:
-    basename: i18n/messages
+  # Removed i18n configuration
   main:
     allow-bean-definition-overriding: true
   webflux:

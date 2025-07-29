@@ -3,7 +3,6 @@ import { Storage } from 'react-jhipster';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { AppThunk } from 'app/config/store';
-import { setLocale } from 'app/shared/reducers/locale';
 import { serializeAxiosError } from './reducer.utils';
 
 export const initialState = {
@@ -20,14 +19,8 @@ export type AuthenticationState = Readonly<typeof initialState>;
 
 // Actions
 
-export const getSession = (): AppThunk => async (dispatch, getState) => {
+export const getSession = (): AppThunk => async dispatch => {
   await dispatch(getAccount());
-
-  const { account } = getState().authentication;
-  if (account && account.langKey) {
-    const langKey = Storage.session.get('locale', account.langKey);
-    await dispatch(setLocale(langKey));
-  }
 };
 
 export const getAccount = createAsyncThunk('authentication/get_account', async () => axios.get<any>('api/account'), {

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Badge, Button, Table } from 'reactstrap';
 
@@ -76,25 +75,16 @@ export const GatewayPage = () => {
       <p>
         <Button onClick={gatewayRoutes} color={isFetching ? 'danger' : 'primary'} disabled={isFetching}>
           <FontAwesomeIcon icon="sync" />
-          &nbsp;
-          <Translate component="span" contentKey="health.refresh.button">
-            Refresh
-          </Translate>
+          &nbsp;Refresh
         </Button>
       </p>
 
       <Table striped responsive>
         <thead>
           <tr key="header">
-            <th>
-              <Translate contentKey="gateway.routes.url">URL</Translate>
-            </th>
-            <th>
-              <Translate contentKey="gateway.routes.service">Service</Translate>
-            </th>
-            <th>
-              <Translate contentKey="gateway.routes.servers">Available servers</Translate>
-            </th>
+            <th>URL</th>
+            <th>Service</th>
+            <th>Available servers</th>
           </tr>
         </thead>
         <tbody>

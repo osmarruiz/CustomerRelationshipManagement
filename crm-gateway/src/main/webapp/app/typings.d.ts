@@ -1,7 +1,7 @@
 declare const VERSION: string;
 declare const SERVER_API_URL: string;
 declare const DEVELOPMENT: string;
-declare const I18N_HASH: string;
+// Removed I18N_HASH declaration
 
 declare module '*.json' {
   const value: any;
