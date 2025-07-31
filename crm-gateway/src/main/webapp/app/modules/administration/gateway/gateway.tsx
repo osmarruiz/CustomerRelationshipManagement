@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Badge, Button, Table } from 'reactstrap';
 
@@ -75,7 +76,7 @@ export const GatewayPage = () => {
       <p>
         <Button onClick={gatewayRoutes} color={isFetching ? 'danger' : 'primary'} disabled={isFetching}>
           <FontAwesomeIcon icon="sync" />
-          &nbsp;Refresh
+          &nbsp; Refrescar
         </Button>
       </p>
 
@@ -83,8 +84,8 @@ export const GatewayPage = () => {
         <thead>
           <tr key="header">
             <th>URL</th>
-            <th>Service</th>
-            <th>Available servers</th>
+            <th>servicio</th>
+            <th>Servidores Disponibles</th>
           </tr>
         </thead>
         <tbody>

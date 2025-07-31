@@ -63,7 +63,7 @@ public class AuthorityResource {
                     .map(result -> {
                         try {
                             return ResponseEntity.created(new URI("/api/authorities/" + result.getName()))
-                                .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getName()))
+                                .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getName()))
                                 .body(result);
                         } catch (URISyntaxException e) {
                             throw new RuntimeException(e);
@@ -123,7 +123,9 @@ public class AuthorityResource {
             .deleteById(id)
             .then(
                 Mono.just(
-                    ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id)).build()
+                    ResponseEntity.noContent()
+                        .headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id))
+                        .build()
                 )
             );
     }

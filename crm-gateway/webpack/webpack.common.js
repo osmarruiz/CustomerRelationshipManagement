@@ -5,8 +5,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const { hashElement } = require('folder-hash');
-const MergeJsonWebpackPlugin = require('merge-jsons-webpack-plugin');
 const utils = require('./utils.js');
 const environment = require('./environment');
 
@@ -33,8 +31,6 @@ const getTsLoaderRule = () => {
 
 module.exports = async options => {
   const development = options.env === 'development';
-  // Removed i18n configuration
-
   return merge(
     {
       cache: {
@@ -126,7 +122,6 @@ module.exports = async options => {
           inject: 'body',
           base: '/',
         }),
-        // Removed MergeJsonWebpackPlugin for i18n
       ],
     },
     // jhipster-needle-add-webpack-config - JHipster will add custom config

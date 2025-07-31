@@ -1,7 +1,6 @@
 import React from 'react';
 import MenuItem from 'app/shared/layout/menus/menu-item';
 
-import { translate } from 'react-jhipster';
 import { NavDropdown } from './menu-components';
 
 const adminMenuItems = () => (
@@ -10,13 +9,13 @@ const adminMenuItems = () => (
       Gateway
     </MenuItem>
     <MenuItem icon="tachometer-alt" to="/admin/metrics">
-      Metrics
+      Métricas
     </MenuItem>
     <MenuItem icon="heart" to="/admin/health">
-      Health
+      Salud
     </MenuItem>
     <MenuItem icon="cogs" to="/admin/configuration">
-      Configuration
+      Configuración
     </MenuItem>
     <MenuItem icon="tasks" to="/admin/logs">
       Logs
@@ -32,7 +31,7 @@ const openAPIItem = () => (
 );
 
 export const AdminMenu = ({ showOpenAPI }) => (
-  <NavDropdown icon="users-cog" name={translate('global.menu.admin.main')} id="admin-menu" data-cy="adminMenu">
+  <NavDropdown icon="users-cog" name="Administración" id="admin-menu" data-cy="adminMenu">
     {adminMenuItems()}
     {showOpenAPI && openAPIItem()}
   </NavDropdown>

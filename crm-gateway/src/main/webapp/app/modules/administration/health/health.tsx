@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 import { Badge, Button, Col, Row, Table } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -40,12 +41,12 @@ export const HealthPage = () => {
   return (
     <div>
       <h2 id="health-page-heading" data-cy="healthPageHeading">
-        Health Checks
+        Control de salud
       </h2>
       <p>
         <Button onClick={fetchSystemHealth} color={isFetching ? 'btn btn-danger' : 'btn btn-primary'} disabled={isFetching}>
           <FontAwesomeIcon icon="sync" />
-          &nbsp;Refresh
+          &nbsp; Refrescar
         </Button>
       </p>
       <Row>
@@ -53,9 +54,9 @@ export const HealthPage = () => {
           <Table bordered aria-describedby="health-page-heading">
             <thead>
               <tr>
-                <th>Service Name</th>
-                <th>Status</th>
-                <th>Details</th>
+                <th>Nombre del servicio</th>
+                <th>Estado</th>
+                <th>Detalles</th>
               </tr>
             </thead>
             <tbody>

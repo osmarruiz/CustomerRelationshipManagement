@@ -1,8 +1,10 @@
 import './home.scss';
 
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Alert, Col, Row } from 'reactstrap';
+
+import { Alert } from 'reactstrap';
 
 import { REDIRECT_URL, getLoginUrl } from 'app/shared/util/url-utils';
 import { useAppSelector } from 'app/config/store';
@@ -18,81 +20,64 @@ export const Home = () => {
       localStorage.removeItem(REDIRECT_URL);
       location.href = `${location.origin}${redirectURL}`;
     }
-  });
+  }, []);
 
   return (
-    <Row>
-      <Col md="3" className="pad">
-        <span className="hipster rounded" />
-      </Col>
-      <Col md="9">
-        <h1 className="display-4" style={{ color: 'red' }}>
-          ¡Bienvenido a CRM !
-        </h1>
-        <p className="lead">This is your home</p>
-        {account?.login ? (
-          <div>
-            <Alert color="success">You are logged in as user {account.login}.</Alert>
+    <div className="crm-hero-container">
+      <Helmet>
+        <title>ConectaCRM - Tu espacio para conectar, crecer y fidelizar clientes</title>
+        <meta name="description" content="ConectaCRM: conecta, crece y fideliza clientes fácilmente." />
+      </Helmet>
+      <div className="crm-hero-bg">
+        <div className="crm-hero-overlay" />
+        <div className="crm-hero-content">
+          <div className="crm-hero-icon">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="12" fill="#43a047" />
+              <path d="M7 17v-2a4 4 0 018 0v2" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <circle cx="12" cy="9" r="3" fill="#fff" />
+            </svg>
           </div>
-        ) : (
-          <div>
-            <Alert color="warning">
-              If you want to{' '}
+          <h1 className="crm-hero-title">¡Bienvenido a ConectaCRM!</h1>
+          <p className="crm-hero-subtitle">Tu espacio para conectar, crecer y fidelizar clientes con facilidad</p>
+          {account?.login ? (
+            <Alert color="success" className="crm-hero-alert">
+              ¡Hola <b>{account.login}</b>! Nos alegra verte de nuevo 😊
+            </Alert>
+          ) : (
+            <Alert color="info" className="crm-hero-alert">
+              <span>¿Tienes cuenta?</span>{' '}
               <a
-                className="alert-link"
+                className="crm-hero-login-link"
                 onClick={() =>
                   navigate(getLoginUrl(), {
                     state: { from: pageLocation },
                   })
                 }
+                style={{ cursor: 'pointer', marginLeft: 8 }}
               >
-                sign in
+                Inicia sesión aquí
               </a>
-              , you can try the default accounts:
-              <br />- Administrator (login=&quot;admin&quot; and password=&quot;admin&quot;)
-              <br />- User (login=&quot;user&quot; and password=&quot;user&quot;).
+              <br />
+              <span style={{ fontSize: '0.9em', color: '#555' }}>
+                Puedes probar con: <b>admin/admin</b> o <b>user/user</b>
+              </span>
             </Alert>
+          )}
+          <div className="crm-hero-links">
+            <a href="#" className="crm-hero-btn">
+              Clientes
+            </a>
+            <a href="#" className="crm-hero-btn crm-hero-btn-secondary">
+              Reportes
+            </a>
+            <a href="#" className="crm-hero-btn crm-hero-btn-tertiary">
+              Soporte
+            </a>
           </div>
-        )}
-        <p>If you have any question on JHipster:</p>
-
-        <ul>
-          <li>
-            <a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer">
-              JHipster homepage
-            </a>
-          </li>
-          <li>
-            <a href="https://stackoverflow.com/tags/jhipster/info" target="_blank" rel="noopener noreferrer">
-              JHipster on Stack Overflow
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" rel="noopener noreferrer">
-              JHipster bug tracker
-            </a>
-          </li>
-          <li>
-            <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">
-              JHipster public chat room
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/jhipster" target="_blank" rel="noopener noreferrer">
-              follow @jhipster on Twitter
-            </a>
-          </li>
-        </ul>
-
-        <p>
-          If you like JHipster, do not forget to give us a star on{' '}
-          <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>
-          !
-        </p>
-      </Col>
-    </Row>
+        </div>
+      </div>
+    </div>
   );
 };
 

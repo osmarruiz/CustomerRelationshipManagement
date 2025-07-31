@@ -28,19 +28,19 @@ export const LogsPage = () => {
       <h2 id="logs-page-heading" data-cy="logsPageHeading">
         Logs
       </h2>
-      <p>There are {loggers.length.toString()} loggers.</p>
+      <p>Hay {loggers.length} registros.</p>
 
-      <span>Filter</span>
+      <span>Filtro</span>
       <input type="text" value={filter} onChange={changeFilter} className="form-control" disabled={isFetching} />
 
       <table className="table table-sm table-striped table-bordered" aria-describedby="logs-page-heading">
         <thead>
           <tr title="click to order">
             <th>
-              <span>Name</span>
+              <span>Nombre</span>
             </th>
             <th>
-              <span>Level</span>
+              <span>Nivel</span>
             </th>
           </tr>
         </thead>

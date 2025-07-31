@@ -1,7 +1,5 @@
 import axios from 'axios';
-import { Storage } from 'react-jhipster';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-
 import { AppThunk } from 'app/config/store';
 import { serializeAxiosError } from './reducer.utils';
 
@@ -19,8 +17,8 @@ export type AuthenticationState = Readonly<typeof initialState>;
 
 // Actions
 
-export const getSession = (): AppThunk => async dispatch => {
-  await dispatch(getAccount());
+export const getSession = (): AppThunk => (dispatch, getState) => {
+  dispatch(getAccount());
 };
 
 export const getAccount = createAsyncThunk('authentication/get_account', async () => axios.get<any>('api/account'), {
